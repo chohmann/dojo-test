@@ -7,6 +7,9 @@
     },
     "name": {
       "type": "string"
+    },
+    "breed":{
+      "type": "string"
     }
   }
 }
