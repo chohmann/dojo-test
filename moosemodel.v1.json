@@ -10,9 +10,6 @@
     },
     "breed":{
       "type": "string"
-    },
-    "favoriteToy": {
-      "type": "string"
     }
   }
 }
