@@ -11,6 +11,9 @@
     },
     "breed": {
       "type": "string"
+    },
+    "color": {
+      "type": "string"
     }
   }
 }
