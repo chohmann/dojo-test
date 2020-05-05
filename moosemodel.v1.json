@@ -11,12 +11,6 @@
     },
     "breed": {
       "type": "string"
-    },
-    "color": {
-      "type": "string"
-    },
-    "favToy": {
-      "type": "string"
     }
   }
 }
