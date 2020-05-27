@@ -1,11 +1,15 @@
 {
   "title": "MooseModel",
   "type": "object",
+  "x-examples": {},
   "properties": {
     "id": {
       "type": "string"
     },
     "name": {
+      "type": "string"
+    },
+    "breed": {
       "type": "string"
     }
   }
