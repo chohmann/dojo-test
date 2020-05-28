@@ -17,7 +17,7 @@
       }
     },
     {
-      "$ref": "http://localhost:1234"
+      "$ref": "./models/Referenced-Model.v1.yaml"
     }
   ]
 }
