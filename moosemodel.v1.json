@@ -1,16 +1,23 @@
 {
   "title": "MooseModel",
-  "type": "object",
   "x-examples": {},
-  "properties": {
-    "id": {
-      "type": "string"
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "breed": {
+          "type": "string"
+        }
+      }
     },
-    "name": {
-      "type": "string"
-    },
-    "breed": {
-      "type": "string"
+    {
+      "$ref": "./models/Referenced-Model.v1.yaml"
     }
-  }
+  ]
 }

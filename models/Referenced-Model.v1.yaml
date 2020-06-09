@@ -1,0 +1,7 @@
+title: Referenced Model
+type: object
+properties:
+  tagNumber:
+    type: integer
+  furColor:
+    type: string
