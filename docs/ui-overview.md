@@ -3,7 +3,7 @@ title: UI Overview
 tags: [00. Welcome]
 ---
 
-# UI Overview Updated updated updated updated updated updated updated updated updated updated updated updated
+# UI Overview Updated updated updated updated updated updated updated updated updated updated updated updated updated
 
 ![](../assets/images/studio-overview.png)
 
