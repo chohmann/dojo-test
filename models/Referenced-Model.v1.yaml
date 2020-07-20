@@ -1,7 +1,10 @@
 title: Referenced Model
 type: object
+x-examples: {}
 properties:
   tagNumber:
     type: integer
   furColor:
     type: string
+  hasShots:
+    type: boolean
