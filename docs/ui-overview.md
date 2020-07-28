@@ -3,7 +3,7 @@ title: UI Overview
 tags: [00. Welcome]
 ---
 
-# UI Overview TESTING WEBHOOKS FOR VINCENZO'S PR
+# UI Overview
 
 ![](../assets/images/studio-overview.png)
 
