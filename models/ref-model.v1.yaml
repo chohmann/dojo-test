@@ -1,0 +1,9 @@
+title: ref model
+type: object
+properties:
+  id:
+    type: string
+  hasShots:
+    type: boolean
+  hasTags:
+    type: boolean
