@@ -21,7 +21,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../moosemodel.v1.json
+                $ref: ../models/ref-model.v1.yaml
       operationId: get-test-id
 components:
   schemas: {}
