@@ -3,7 +3,6 @@
   "x-examples": {},
   "allOf": [
     {
-      "type": "object",
       "properties": {
         "id": {
           "type": "string"
@@ -16,11 +15,12 @@
         },
         "type": {
           "type": "string"
+        },
+        "anotherProperty": {
+          "type": "string"
         }
       }
-    },
-    {
-      "$ref": "./moosemodel.v1.json"
     }
-  ]
+  ],
+  "type": "object"
 }
