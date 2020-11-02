@@ -7,3 +7,5 @@ properties:
     type: boolean
   hasTags:
     type: boolean
+  furColor:
+    type: string
