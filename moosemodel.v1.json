@@ -3,6 +3,7 @@
   "x-examples": {},
   "allOf": [
     {
+      "type": "object",
       "properties": {
         "id": {
           "type": "string"
@@ -14,7 +15,9 @@
           "type": "string"
         }
       }
+    },
+    {
+      "$ref": "./models/ref-model.v1.yaml"
     }
-  ],
-  "type": "object"
+  ]
 }
