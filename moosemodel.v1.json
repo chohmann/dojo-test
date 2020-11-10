@@ -12,9 +12,6 @@
         },
         "breed": {
           "type": "string"
-        },
-        "type": {
-          "type": "string"
         }
       }
     }
