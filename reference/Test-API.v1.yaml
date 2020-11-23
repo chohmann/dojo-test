@@ -24,6 +24,15 @@ paths:
                 $ref: ../models/ref-model.v1.yaml
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  chelsea:
+                    type: string
+                  test:
+                    type: string
       operationId: get-test-id
 components:
   schemas: {}
