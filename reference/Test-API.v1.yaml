@@ -22,6 +22,8 @@ paths:
             application/json:
               schema:
                 $ref: ../models/ref-model.v1.yaml
+        '201':
+          description: Created
       operationId: get-test-id
 components:
   schemas: {}
