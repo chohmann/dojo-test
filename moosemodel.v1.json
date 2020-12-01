@@ -22,5 +22,6 @@
     {
       "$ref": "./models/ref-model.v1.yaml"
     }
-  ]
+  ],
+  "description": ""
 }
