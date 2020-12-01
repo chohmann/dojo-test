@@ -13,6 +13,9 @@
         },
         "breed": {
           "type": "string"
+        },
+        "eyeColor": {
+          "type": "string"
         }
       }
     },
