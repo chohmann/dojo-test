@@ -21,7 +21,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/ref-model.v1.yaml
+                $ref: ../moosemodel.v1.json
         '201':
           description: Created
           content:
