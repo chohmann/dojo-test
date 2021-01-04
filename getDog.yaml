@@ -1,0 +1,21 @@
+summary: Your GET endpoint
+tags: []
+responses:
+  '200':
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: ./moosemodel.v1.json
+  '201':
+    description: Created
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            chelsea:
+              type: string
+            test:
+              type: string
+operationId: get-dog-id

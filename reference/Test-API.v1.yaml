@@ -34,5 +34,14 @@ paths:
                   test:
                     type: string
       operationId: get-test-id
+  '/dog/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      $ref: ../getDog.yaml
 components:
   schemas: {}
