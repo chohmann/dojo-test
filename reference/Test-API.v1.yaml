@@ -29,7 +29,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  blah:
+                  hello:
                     type: string
                   test:
                     type: string
