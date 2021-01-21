@@ -42,7 +42,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: Get A Dog
       tags: []
       responses:
         '200':
