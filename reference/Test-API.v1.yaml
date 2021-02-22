@@ -52,6 +52,6 @@ paths:
               schema:
                 $ref: ../moosemodel.v1.json
         '400':
-          $ref: 'https://stoplight.io/api/v1/projects/chelsea/common-resources/nodes/common.oas2.yml#/components/responses/400'
+          $ref: 'https://stoplight.io:443/api/v1/projects/chelsea/common-resources/nodes/common.oas2.yml#/components/responses/400'
 components:
   schemas: {}
