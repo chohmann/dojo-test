@@ -1,0 +1,10 @@
+title: circular-ref
+type: object
+properties:
+  id:
+    type: string
+  children:
+    type: array
+    description: children
+    items:
+      $ref: ./circular-ref.v1.yaml
