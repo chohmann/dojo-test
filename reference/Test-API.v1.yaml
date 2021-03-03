@@ -50,6 +50,6 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'http://stoplight-local.com:8080/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml'
+                $ref: 'http://stoplight-local.com:8080/api/v1/projects/chelsea/common/nodes/models/Circular-Ref.v1.yaml?mid=3'
 components:
   schemas: {}
