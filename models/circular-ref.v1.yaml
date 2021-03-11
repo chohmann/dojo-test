@@ -7,4 +7,4 @@ properties:
     type: array
     description: children
     items:
-      $ref: ./circular-ref.v1.yaml
+      $ref: 'https://x-5535.stoplight-dev.com/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml?mid=1'
