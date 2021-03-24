@@ -5,4 +5,4 @@ properties:
     type: string
   child:
     description: children
-    $ref: 'https://x-5535.stoplight-dev.com/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml?mid=1'
+    $ref: 'https://x-5576.stoplight-dev.com/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml?mid=1'
