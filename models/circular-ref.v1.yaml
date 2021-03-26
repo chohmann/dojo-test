@@ -4,4 +4,4 @@ properties:
   id:
     type: string
   child:
-    $ref: 'https://x-5676.stoplight-dev.com/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml?mid=4'
+    $ref: 'https://x-5738.stoplight-dev.com/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml?deref=bundle&mid=1'
