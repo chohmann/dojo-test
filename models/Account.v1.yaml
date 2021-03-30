@@ -1,0 +1,24 @@
+title: Account
+type: object
+description: 'Designates an account that could be of different kind : quote to account, sold to account, ship to account, bill to account.'
+properties:
+  accountId:
+    type: string
+    description: Technical Id of the account in the consumer system.
+    example: '121238981998'
+  accountName:
+    type: string
+    description: account name (readable value)
+    example: Technip holding benelux b.v
+  accountGoldenId:
+    type: string
+    description: unique reference of an account in the SE account autoritative system.
+    example: '01234676789'
+  countryCode:
+    type: string
+    description: 'Two character country code, as defined by ISO 3166-2.'
+    example: FR
+  address:
+    $ref: ./Address.v1.yaml
+required:
+  - accountId
