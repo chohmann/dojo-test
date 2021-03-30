@@ -3,8 +3,5 @@ type: object
 properties:
   id:
     type: string
-  children:
-    type: array
-    description: children
-    items:
-      $ref: ./circular-ref.v1.yaml
+  child:
+    $ref: 'https://x-5738.stoplight-dev.com/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml?deref=bundle&mid=1'
