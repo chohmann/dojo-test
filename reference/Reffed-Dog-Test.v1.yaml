@@ -13,6 +13,9 @@ paths:
         in: path
         required: true
     get:
-      $ref: http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/dog.yaml
+      $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/dog.yaml'
+      responses:
+        '200':
+          description: OK
 components:
   schemas: {}
