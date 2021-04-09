@@ -26,6 +26,6 @@ paths:
                   id:
                     type: string
       parameters:
-        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/parameters/libs-params-common.v1.yaml#/components/parameters/Authorization'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
 components:
   schemas: {}
