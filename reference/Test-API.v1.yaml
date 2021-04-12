@@ -27,5 +27,18 @@ paths:
                     type: string
       parameters:
         - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+        - schema:
+          type: string
+          enum:
+            - '-name'
+            - +name
+            - '-dateOfBirth'
+            - +dateOfBirth
+            - dateOfBirth
+            - name
+          in: query
+          name: sort
+          description: Specify the parameter by which to sort. - Indicates the specified field descending where + indicates ascending.
+
 components:
   schemas: {}
