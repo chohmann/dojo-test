@@ -57,7 +57,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: 'https://api-design.fiserv.com/api/v1/projects/fiserv144/dl-business-object-model/nodes/reference/schemas/libs-schema-response.yaml/components/schemas/ResponseType?mid=148'
+                  - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-schema-response.yaml/components/schemas/ResponseType'
                   - type: object
                     properties:
                       data:
