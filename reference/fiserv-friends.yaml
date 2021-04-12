@@ -1,0 +1,370 @@
+openapi: 3.0.0
+info:
+  title: Example Standards API
+  version: '1.0'
+  description: |
+    Demonstrates API keys, headers and response type in endpoint response.
+
+    # Welcome to the Example Friends API documentation
+     
+    Friends API lets the clients to manage their friends.
+     
+    ## Funtionalities that it provides:
+    This API provides below functionalities:
+    - Retrieve all friends' details
+    - Retrieve a specific friend's details
+    - Update a friend's details
+    - Create a new friend
+    - Delete an existing friend
+       
+     
+    ## How it works
+    Clients will have to get a new app created from the developer portal to be able to use this API.
+     
+      
+    ## What will you need
+    Authentication: Clients will need to provide the "API-Key" header populated with API-Key they must have recieved from Developer Portal at the time of registration and App creation.
+     
+     
+     
+    ## How to use
+    Refer:
+    * the **API Reference ** page for interface details of the API
+    * the **Usage Guide** page to understand the behaviour of the API in different use cases.
+    * the **Messages** page for different messages (information, error or warning) the API returns.
+      
+    ## Other Details
+    Refer [IPP Documents API V1.0](https://fiserv144.stoplight.io/docs/ipp-documents-api-v1-0/docs/Home.md) for Documents API where the same pattern is used.
+      
+servers: []
+paths:
+  /friends:
+    get:
+      summary: Retrieve all friends details
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            FSV-Interaction-Id:
+              schema:
+                type: string
+                example: 9591e6d8-0d70-11ea-8d71-362b9e155667
+                minLength: 36
+                maxLength: 36
+              description: An RFC4122 UUID used as to trace requests.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: 'https://api-design.fiserv.com/api/v1/projects/fiserv144/dl-business-object-model/nodes/reference/schemas/libs-schema-response.yaml/components/schemas/ResponseType?mid=148'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/FriendResponse'
+              examples:
+                Example:
+                  value:
+                    meta:
+                      paging:
+                        count: 100
+                        totalPages: 10
+                        currentOffset: 1
+                        currentNumberOfRetrievedRecords: 10
+                        maxLimit: 10
+                        hasMoreRecords: true
+                        pageNumber: 1
+                      sorting:
+                        sort: 'name,-startDate'
+                    data:
+                      - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        name: Ryan Clifford
+                        dateOfBirth: '2019-08-24'
+      operationId: get-friends
+      parameters:
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+        - schema:
+            type: string
+            enum:
+              - '-name'
+              - +name
+              - '-dateOfBirth'
+              - +dateOfBirth
+              - dateOfBirth
+              - name
+          in: query
+          name: sort
+          description: Specify the parameter by which to sort. - Indicates the specified field descending where + indicates ascending.
+        - schema:
+            type: string
+            example: 'name:Ryan'
+          in: query
+          description: Specify the field by which to filter with a example
+          name: filter
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/schemas/FSV-Interaction-Id'
+      description: Get all the Friends
+    post:
+      summary: Add new friend
+      operationId: post-friends
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/FriendResponse'
+              examples:
+                Example:
+                  value:
+                    data:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: Ryan Clifford
+                      dateOfBirth: '2019-08-24'
+          headers:
+            FSV-Interaction-Id:
+              schema:
+                type: string
+                example: 9591e6d8-0d70-11ea-8d71-362b9e155667
+                minLength: 36
+                maxLength: 36
+              description: An RFC4122 UUID used as to trace requests.
+      description: Create a new friend
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FriendRequest'
+            examples:
+              Example:
+                value:
+                  name: Ryan Clifford
+                  dateOfBirth: '2019-08-24'
+        description: ''
+      parameters:
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+    parameters: []
+  '/friends/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The Id of the friend
+    patch:
+      summary: Update a friend object
+      operationId: patch-friends-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/FriendResponse'
+              examples:
+                Example:
+                  value:
+                    data:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: Ryan Clifford
+                      dateOfBirth: '2019-08-24'
+          headers:
+            FSV-Interaction-Id:
+              schema:
+                type: string
+                example: 9591e6d8-0d70-11ea-8d71-362b9e155667
+                minLength: 36
+                maxLength: 36
+              description: An RFC4122 UUID used as to trace requests.
+      description: 'Updates '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FriendRequest'
+            examples:
+              Example:
+                value:
+                  name: Ryan Clifford
+                  dateOfBirth: '2019-08-24'
+      parameters:
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+    put:
+      summary: Replace the friend
+      operationId: put-friends-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/FriendResponse'
+              examples:
+                Example:
+                  value:
+                    data:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: Ryan Clifford
+                      dateOfBirth: '2019-08-24'
+          headers:
+            FSV-Interaction-Id:
+              schema:
+                type: string
+                example: 9591e6d8-0d70-11ea-8d71-362b9e155667
+                minLength: 36
+                maxLength: 36
+              description: An RFC4122 UUID used as to trace requests.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FriendRequest'
+            examples:
+              Example:
+                value:
+                  name: Gerard Coyne
+                  dateOfBirth: '2019-08-24'
+      description: Replaces the friend object
+      parameters:
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+    delete:
+      summary: Remove the friend
+      operationId: delete-friends-id
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+      description: ''
+    get:
+      summary: Retrieve a friend
+      operationId: get-friends-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/FriendResponse'
+              examples:
+                Example:
+                  value:
+                    data:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: Ryan Clifford
+                      dateOfBirth: '2019-08-24'
+          headers:
+            FSV-Interaction-Id:
+              schema:
+                type: string
+                example: 9591e6d8-0d70-11ea-8d71-362b9e155667
+                minLength: 36
+                maxLength: 36
+              description: An RFC4122 UUID used as to trace requests.
+      description: Retrieves a single friend object
+      parameters:
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
+        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
+components:
+  schemas:
+    FriendRequest:
+      title: Friend Request Object
+      type: object
+      description: Describes the request object for a friend.
+      x-examples:
+        Example:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          name: Ryan Clifford
+          dateOfBirth: '2019-08-24'
+      properties:
+        name:
+          $ref: '#/components/schemas/name'
+        dateOfBirth:
+          $ref: '#/components/schemas/dateOfBirth'
+      required:
+        - name
+        - dateOfBirth
+    id:
+      type: string
+      title: Friend id
+      description: The unique identifier of a friend
+      format: uuid
+      x-examples:
+        Example: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+    FriendResponse:
+      title: Friend Response Object
+      type: object
+      description: The response object of a friend
+      x-examples:
+        Example:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          name: Ryan Clifford
+          dateOfBirth: '2019-08-24'
+      properties:
+        id:
+          $ref: '#/components/schemas/id'
+        name:
+          $ref: '#/components/schemas/name'
+        dateOfBirth:
+          $ref: '#/components/schemas/dateOfBirth'
+      required:
+        - id
+        - name
+        - dateOfBirth
+    name:
+      type: string
+      title: Name
+      description: The name of the friend
+      x-examples:
+        Example: Ryan Clifford
+      example: Ryan Clifford
+    dateOfBirth:
+      type: string
+      title: Date of birth
+      description: The date of birth in the format of dd/mm/yyyy
+      x-examples:
+        Example: '2019-08-24'
+      format: date
+  securitySchemes:
+    Api-Key:
+      name: Api-Key
+      type: apiKey
+      in: header
+      description: Authorization value in header (obtain from developer portal)
