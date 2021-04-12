@@ -84,7 +84,7 @@ paths:
                         dateOfBirth: '2019-08-24'
       operationId: get-friends
       parameters:
-        - $ref: 'https://stoplight.io/api/v1/projects/stoplight/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'https://test-prod-hub.stoplight-dev.com/api/v1/projects/stoplight/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
         - $ref: 'https://stoplight.io/api/v1/projects/stoplight/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
         - $ref: 'https://stoplight.io/api/v1/projects/stoplight/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
         - $ref: 'https://stoplight.io/api/v1/projects/stoplight/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
@@ -107,7 +107,6 @@ paths:
           in: query
           description: Specify the field by which to filter with a example
           name: filter
-        - $ref: 'https://stoplight.io/api/v1/projects/stoplight/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/schemas/FSV-Interaction-Id'
       description: Get all the Friends
     post:
       summary: Add new friend
