@@ -84,8 +84,8 @@ paths:
                         dateOfBirth: '2019-08-24'
       operationId: get-friends
       parameters:
-        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
-        - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
+        - $ref: 'http://chelsea.stoplight.io/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Idempotency-Key'
+        - $ref: 'http://chelsea.stoplight.io/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/FSV-Interaction-Id'
         - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/TimeStamp'
         - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Content-Type'
         - $ref: 'http://chelsea.stoplight-local.com:8080/api/v1/projects/chelsea/create-non-empty/nodes/reference/libs-params-common.v1.yaml#/components/parameters/Authorization'
