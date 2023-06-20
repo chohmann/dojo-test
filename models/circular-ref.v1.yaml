@@ -1,7 +1,0 @@
-title: circular-ref
-type: object
-properties:
-  id:
-    type: string
-  child:
-    $ref: 'https://stoplight.io/api/v1/projects/chelsea/dojo-test/nodes/models/circular-ref.v1.yaml'
